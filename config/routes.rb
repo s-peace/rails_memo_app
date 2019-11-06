@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get 'sessions/new'
+  
   namespace :admin do
     resources :users
   end
-
+  
   root  'memos#index'
-  resources :memos
+  resources :memos do
+    post :import, on: :collection
+  end
 end
