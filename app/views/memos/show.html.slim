@@ -1,0 +1,27 @@
+h1 メモ詳細
+
+.nav.justify-content-start
+  = link_to 'メモ一覧', memos_path, class:'nav-link'
+
+table.table.table-hover
+  tbody
+    tr
+      th= Memo.human_attribute_name(:id)
+      td= @memo.id
+    tr
+      th= Memo.human_attribute_name(:title)
+      td= @memo.title
+    tr
+      th= Memo.human_attribute_name(:description)
+      td= simple_format(h(@memo.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Memo.human_attribute_name(:image)
+      td= image_tag @memo.image if @memo.image.attached?
+    tr
+      th= Memo.human_attribute_name(:created_at)
+      td= @memo.created_at
+    tr
+      th= Memo.human_attribute_name(:updated_at)
+      td= @memo.updated_at
+
+= link_to '編集', edit_memo_path, class:'btn btn-primary mr-3'
