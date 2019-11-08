@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 #search
 gem 'ransack'
 
+#pagination
+gem 'kaminari'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
